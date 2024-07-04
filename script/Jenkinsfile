@@ -7,6 +7,12 @@ pipeline{
    }
 
    stages{
+
+    stage('sonar scan'){
+        steps{
+            sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=roberttemta_geo-application'
+        }
+    }
     stage("maven"){
         steps{
             sh 'mvn clean' 
