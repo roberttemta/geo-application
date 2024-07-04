@@ -10,7 +10,10 @@ pipeline{
 
     stage('sonar scan'){
         steps{
+           withSonarQubeEnv('SonarQube'){
             sh 'mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=roberttemta_geo-application'
+           }
+            
         }
     }
     stage("maven"){
