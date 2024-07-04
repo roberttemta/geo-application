@@ -3,7 +3,7 @@ pipeline{
    agent any 
    
    stages{
-    stage('maven'){
+    stage("maven"){
         steps{
             sh 'mvn clean validate install package test'
         }
